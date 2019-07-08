@@ -1,17 +1,15 @@
-<nav id="menu_area"
-    style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px; font-weight: 500; font-size: smaller;">
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-light navbar-expand mainmenu lg-new">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="top-level-menu">
-              <li *ngFor="let dashboardMenu of dashboardMainMenu; let j = index">
-                <div class="top-level-menu1" style="display: -webkit-inline-box">
-                  <a href="{{ dashboardMenu.url ? dashboardMenu.url : '#' }}"
-                    target="{{ dashboardMenu.url ? '_blankl' : null }}" *ngIf="dashboardMenu.Visible == 'true'"
-                    class="referrenceOnHover">
-                    {{ dashboardMenu.applicationName }}
-                    <i class="fa fa-caret-down" aria-hidden="true" *ngIf="dashboardMenu.icon"
+<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px; font-weight: 500; font-size: smaller;">
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-light navbar-expand mainmenu lg-new">
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="top-level-menu">
+						<li *ngFor="let dashboardMenu of dashboardMainMenu; let j = index">
+							<div class="top-level-menu1" style="display: -webkit-inline-box">
+								<a href="{{ dashboardMenu.url ? dashboardMenu.url : '#' }}" target="{{ dashboardMenu.url ? '_blankl' : null }}" *ngIf="dashboardMenu.Visible == 'true'"
+								 class="referrenceOnHover">
+									{{ dashboardMenu.applicationName }}
+									<i class="fa fa-caret-down" aria-hidden="true" *ngIf="dashboardMenu.icon"
                       style="padding-left: 8px"></i>
                   </a>
                 </div>
@@ -19,10 +17,9 @@
                 <ul class="second-level-menu" *ngIf="menuArr[j]">
                   <li *ngFor="let dashboardMenuArr of menuArr[j]">
                     <div class="second-level-menu1">
-                      <a href="{{
-                          dashboardMenuArr.url ? dashboardMenuArr.url : '#'
-                        }}" target="{{ dashboardMenuArr.url ? '_blankl' : null }}"
-                        *ngIf="dashboardMenuArr.Visible == 'true'" class="referrenceOnHover" style="padding-left:10px;">
+                      <a href="{{dashboardMenuArr.url ? dashboardMenuArr.url : '#'}}" 
+                          target="{{ dashboardMenuArr.url ? '_blankl' : null }}"
+                          *ngIf="dashboardMenuArr.Visible == 'true'" class="referrenceOnHover" style="padding-left:10px;">
                         {{ dashboardMenuArr.applicationName }}
                         <i class="fa fa-caret-right" *ngIf="dashboardMenuArr.subMenuIcon" id="caretRightIcon"
                           aria-hidden="true"></i>
