@@ -1,11 +1,13 @@
 <div>
 
+  <!-- Header -->
 	<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0;">
 		<div style="padding: 7px; text-align: center;     font-weight: 500;">
 			Dynamic Navigation Bar (Using Json)
 		</div>
 	</nav>
 
+  <!-- Navigation Bar -->
 	<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px;">
 		<div class="container">
 			<div class="row">
@@ -60,25 +62,45 @@
 
 </div>
 
-<br/><br/>
+<!-- Action -->
+<div style="padding: 10px; margin-top: 100px;">
+  <table style="width: 100%; padding: 10px;">
+    <tr>
+      <td width="22%">
+        <div style="min-height: 20%; max-height: 200px; overflow-y: scroll;">
+          <ul class="list-group" *ngFor="let x of AppPermissions">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              {{x}}
+              <button type="button" class="btn btn-danger btn-sm" (click)="OnRemove(x)">
+                Remove
+              </button>
+            </li>
+          </ul>
+        </div>
+      </td>
 
-<div>
-  <b>Third Party Tools Used:</b>
+      <td width="10%"></td>
 
-  <ol>
-    <li>font-awesome 4.7.0</li>
-    <li>bootstrap 4.3.1</li>
-  </ol>
-</div>
+      <td width="60%">
+        <div>
+          <b>Note:</b>
 
-<br/>
+          <ul style="list-style-type: none;">
+            <li>UI is designed in such a way that,</li>
+            <li>Each menu items will have its own permissions and</li>
+            <li>Each menu items will display based on their permissions.</li>
+          </ul>
+        </div>
 
-<div>
-  <b>Note:</b>
+        <div>
+          <b>Third Party Tools Used:</b>
 
-  <ul style="list-style-type: none;">
-    <li>UI is designed in such a way that,</li>
-    <li>Each menu items will have its own permissions and</li>
-    <li>Each menu items will display based on their permissions.</li>
-  </ul>
+          <ol>
+            <li>font-awesome 4.7.0</li>
+            <li>bootstrap 4.3.1</li>
+          </ol>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>

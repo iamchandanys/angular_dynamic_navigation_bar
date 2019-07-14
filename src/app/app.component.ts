@@ -9,7 +9,7 @@ import { NarBarData } from './dashboard-menus';
 export class AppComponent {
 
   constructor() {
-    this.GetNavArray();
+    this.OnRemove('');
   }
 
   dashboardMainMenu: any[] = [];
@@ -25,7 +25,9 @@ export class AppComponent {
   ];
 
   GetNavArray() {
-    this.dashboardMainMenu = NarBarData;
+    debugger;
+    var newNavBarData = JSON.stringify(NarBarData);
+    this.dashboardMainMenu = JSON.parse(newNavBarData);
 
     for (let schild of this.dashboardMainMenu) {
       this.menuArr.push(schild.child);
@@ -50,6 +52,19 @@ export class AppComponent {
         schild.Visible = "true";
       }
     }
+
+    console.log(this.dashboardMainMenu);
+    var a = JSON.stringify(this.dashboardMainMenu);
+    this.dashboardMainMenu = [];
+    this.dashboardMainMenu = JSON.parse(a);
+  }
+
+  OnRemove(permission) {
+    debugger;
+    var newPermission = this.AppPermissions.filter(e => e != permission);
+    this.AppPermissions = [];
+    this.AppPermissions = newPermission;
+    this.GetNavArray();
   }
 }
 

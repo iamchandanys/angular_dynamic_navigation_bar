@@ -63,6 +63,7 @@
   background-color: white;
   padding-bottom: 4px;
   padding-top: 4px;
+  z-index: 40000;
 }
 
 .second-level-menu > li {
