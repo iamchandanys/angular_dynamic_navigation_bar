@@ -1,18 +1,25 @@
 <div>
 
-  <nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px;">
-    <div class="container">
-      <div class="row">
-        <nav class="navbar navbar-light navbar-expand mainmenu lg-new">
+	<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0;">
+		<div style="padding: 7px; text-align: center;     font-weight: 500;">
+			Dynamic Navigation Bar (Using Json)
+		</div>
+	</nav>
 
-          <div class="collapse navbar-collapse"  id="navbarSupportedContent" *ngFor="let dashboardMenu of dashboardMainMenu; let j = index" >
-            <ul class="top-level-menu" *ngIf="dashboardMenu.Visible == 'true'">
-              <li>
+	<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px;">
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-light navbar-expand mainmenu lg-new">
 
-                <div class="top-level-menu1" style="display: -webkit-inline-box; padding-bottom: 6px;" >
-                  <a  href="{{ dashboardMenu.url ? dashboardMenu.url : 'javascript:;' }}"  target="{{ dashboardMenu.url ? '_blank' : null }}" *ngIf="dashboardMenu.Visible == 'true'"  class="referrenceOnHoverTopMenu" >
-                    {{ dashboardMenu.applicationName }}
-                    <i class="fa fa-caret-down"  aria-hidden="true" *ngIf="dashboardMenu.icon" style="padding-left: 8px" ></i>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent" *ngFor="let dashboardMenu of dashboardMainMenu; let j = index">
+						<ul class="top-level-menu" *ngIf="dashboardMenu.Visible == 'true'">
+							<li>
+
+								<div class="top-level-menu1" style="display: -webkit-inline-box; padding-bottom: 6px;">
+									<a href="{{ dashboardMenu.url ? dashboardMenu.url : 'javascript:;' }}" target="{{ dashboardMenu.url ? '_blank' : null }}"
+									 *ngIf="dashboardMenu.Visible == 'true'" class="referrenceOnHoverTopMenu">
+										{{ dashboardMenu.applicationName }}
+										<i class="fa fa-caret-down"  aria-hidden="true" *ngIf="dashboardMenu.icon" style="padding-left: 8px" ></i>
                   </a>
                 </div>
 
@@ -72,6 +79,6 @@
   <ul style="list-style-type: none;">
     <li>UI is designed in such a way that,</li>
     <li>Each menu items will have its own permissions and</li>
-    <li>Each menu will display based on their permissions.</li>
+    <li>Each menu items will display based on their permissions.</li>
   </ul>
 </div>
