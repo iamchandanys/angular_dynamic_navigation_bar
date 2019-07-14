@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavBarData } from './dashboard-menus';
+import { NarBarData } from './dashboard-menus';
 
 @Component({
   selector: 'my-app',
@@ -8,32 +8,45 @@ import { NavBarData } from './dashboard-menus';
 })
 export class AppComponent {
 
-  constructor(){
+  constructor() {
     this.GetNavArray();
   }
 
   dashboardMainMenu: any[] = [];
-  sep: any;
-  AppPermissions: any[] = ["ET Search", "WF View"];
   menuArr: MainArrayType[] = [];
+  AppPermissions: any[] = [
+    "Dashboard Permission",
+    "Global Permission",
+    "Apple Permission",
+    "Orange Permission",
+    "Cars Permission",
+    "Volvo Bus Permission",
+    "Private Bus Permission"
+  ];
 
   GetNavArray() {
-    this.dashboardMainMenu = NavBarData;
-    this.sep = this.dashboardMainMenu.length - 2;
+    this.dashboardMainMenu = NarBarData;
 
     for (let schild of this.dashboardMainMenu) {
       this.menuArr.push(schild.child);
 
       if (schild.child && schild.child.length > 0) {
         schild.child.forEach((x: any) => {
-          if (this.AppPermissions.includes(x.Permission)) {
+          if (this.AppPermissions.some(r => x.Permission.includes(r))) {
             x.Visible = "true";
             schild.Visible = "true";
+            if (x.subchild.length > 0) {
+              x.subchild.forEach((y: any) => {
+                if (this.AppPermissions.some(a => y.Permission.includes(a))) {
+                  y.Visible = "true";
+                }
+              })
+            }
           }
         });
       }
 
-      if (this.AppPermissions.includes(schild.Permission)) {
+      if (this.AppPermissions.some(x => schild.Permission.includes(x))) {
         schild.Visible = "true";
       }
     }

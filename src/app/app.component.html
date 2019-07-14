@@ -1,53 +1,48 @@
-<nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px; font-weight: 500; font-size: smaller;">
-	<div class="container">
-		<div class="row">
-			<nav class="navbar navbar-light navbar-expand mainmenu lg-new">
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="top-level-menu">
-						<li *ngFor="let dashboardMenu of dashboardMainMenu; let j = index">
-							<div class="top-level-menu1" style="display: -webkit-inline-box">
-								<a href="{{ dashboardMenu.url ? dashboardMenu.url : '#' }}" target="{{ dashboardMenu.url ? '_blankl' : null }}" *ngIf="dashboardMenu.Visible == 'true'"
-								 class="referrenceOnHover">
-									{{ dashboardMenu.applicationName }}
-									<i class="fa fa-caret-down" aria-hidden="true" *ngIf="dashboardMenu.icon"
-                      style="padding-left: 8px"></i>
+<div>
+
+  <nav id="menu_area" style="background-color: #f8f8f8; border-bottom: 1px solid #d0d0d0; padding: -15px;">
+    <div class="container">
+      <div class="row">
+        <nav class="navbar navbar-light navbar-expand mainmenu lg-new">
+
+          <div class="collapse navbar-collapse"  id="navbarSupportedContent" *ngFor="let dashboardMenu of dashboardMainMenu; let j = index" >
+            <ul class="top-level-menu" *ngIf="dashboardMenu.Visible == 'true'">
+              <li>
+
+                <div class="top-level-menu1" style="display: -webkit-inline-box; padding-bottom: 6px;" >
+                  <a  href="{{ dashboardMenu.url ? dashboardMenu.url : 'javascript:;' }}"  target="{{ dashboardMenu.url ? '_blank' : null }}" *ngIf="dashboardMenu.Visible == 'true'"  class="referrenceOnHoverTopMenu" >
+                    {{ dashboardMenu.applicationName }}
+                    <i class="fa fa-caret-down"  aria-hidden="true" *ngIf="dashboardMenu.icon" style="padding-left: 8px" ></i>
                   </a>
                 </div>
 
                 <ul class="second-level-menu" *ngIf="menuArr[j]">
-                  <li *ngFor="let dashboardMenuArr of menuArr[j]">
-                    <div class="second-level-menu1">
-                      <a href="{{dashboardMenuArr.url ? dashboardMenuArr.url : '#'}}" 
-                          target="{{ dashboardMenuArr.url ? '_blankl' : null }}"
-                          *ngIf="dashboardMenuArr.Visible == 'true'" class="referrenceOnHover" style="padding-left:10px;">
-                        {{ dashboardMenuArr.applicationName }}
-                        <i class="fa fa-caret-right" *ngIf="dashboardMenuArr.subMenuIcon" id="caretRightIcon"
-                          aria-hidden="true"></i>
-                      </a>
-                    </div>
+                  <div *ngFor="let dashboardMenuArr of menuArr[j]">
+                    <li  class="dropright" *ngIf="dashboardMenuArr.Visible == 'true'" >
 
-                    <ul class="third-level-menu" *ngIf="dashboardMenuArr.subchild != 0">
-                      <li *ngFor="let dashboardSubMenuArr of dashboardMenuArr.subchild">
-                        <div class="third-level-menu1">
-                          <a target="_blank" href="{{ dashboardSubMenuArr.url }}"
-                            *ngIf="dashboardSubMenuArr.applicationName" class="referrenceOnHover"
-                            style="padding-left:20px; ">
-                            {{ dashboardSubMenuArr.applicationName }}
-                          </a>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
+                      <div class="second-level-menu1">
+                        <a  href="{{ dashboardMenuArr.url ? dashboardMenuArr.url : 'javascript:;' }}" target="{{ dashboardMenuArr.url ? '_blank' : null }}" class="referrenceOnHover" style="padding-left:10px; padding-bottom: 5px;padding-top: 5px; height: 30px;" >
+                          {{ dashboardMenuArr.applicationName }}
+                          <i class="fa fa-caret-right" *ngIf="dashboardMenuArr.subMenuIcon" id="caretRightIcon" aria-hidden="true" ></i>
+                        </a>
+                      </div>
+
+                      <ul  class="third-level-menu" *ngIf="dashboardMenuArr.subchild != 0 " >
+                        <li *ngFor=" let dashboardSubMenuArr of dashboardMenuArr.subchild " >
+                          <div class="third-level-menu1" *ngIf="dashboardSubMenuArr.Visible == 'true'">
+                            <a target="_blank"  href="{{ dashboardSubMenuArr.url }}" *ngIf="dashboardSubMenuArr.applicationName"  class="referrenceOnHover"  style="padding-left:20px; padding-bottom: 0px;padding-top: 5px; height: 30px;"  >
+                              {{ dashboardSubMenuArr.applicationName }}
+                            </a>
+                          </div>
+                        </li>
+                      </ul>
+
+                    </li>
+                  </div>
                 </ul>
-                <span *ngIf="j <= sep">
-                  <label *ngIf="dashboardMenu.child!=null">
-                    |
-                  </label>
 
-                  <label *ngIf="dashboardMenu.child==null">
-                    |
-                  </label>
-                </span>
+                <label >| </label>
+
               </li>
             </ul>
           </div>
@@ -55,3 +50,28 @@
       </div>
     </div>
   </nav>
+
+</div>
+
+<br/><br/>
+
+<div>
+  <b>Third Party Tools Used:</b>
+
+  <ol>
+    <li>font-awesome 4.7.0</li>
+    <li>bootstrap 4.3.1</li>
+  </ol>
+</div>
+
+<br/>
+
+<div>
+  <b>Note:</b>
+
+  <ul style="list-style-type: none;">
+    <li>UI is designed in such a way that,</li>
+    <li>Each menu items will have its own permissions and</li>
+    <li>Each menu will display based on their permissions.</li>
+  </ul>
+</div>
