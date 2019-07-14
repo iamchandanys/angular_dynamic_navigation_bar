@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { NarBarData } from './dashboard-menus';
 
 @Component({
@@ -8,7 +8,7 @@ import { NarBarData } from './dashboard-menus';
 })
 export class AppComponent {
 
-  constructor() {
+  constructor(private cdRef: ChangeDetectorRef) {
     this.OnRemove('');
   }
 
@@ -52,15 +52,9 @@ export class AppComponent {
         schild.Visible = "true";
       }
     }
-
-    console.log(this.dashboardMainMenu);
-    var a = JSON.stringify(this.dashboardMainMenu);
-    this.dashboardMainMenu = [];
-    this.dashboardMainMenu = JSON.parse(a);
   }
 
   OnRemove(permission) {
-    debugger;
     var newPermission = this.AppPermissions.filter(e => e != permission);
     this.AppPermissions = [];
     this.AppPermissions = newPermission;
