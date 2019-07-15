@@ -1,6 +1,6 @@
 const pageUrl = "https://www.abc.com/";
 
-export const NarBarData = [
+export const NavBarData = [
   {
     applicationName: "Dashboard",
     url: pageUrl + "dashboard",

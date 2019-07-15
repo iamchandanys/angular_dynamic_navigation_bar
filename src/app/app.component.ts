@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
-import { NarBarData } from './dashboard-menus';
+import { Component } from '@angular/core';
+import { NavBarData } from './dashboard-menus';
 
 @Component({
   selector: 'my-app',
@@ -8,7 +8,7 @@ import { NarBarData } from './dashboard-menus';
 })
 export class AppComponent {
 
-  constructor(private cdRef: ChangeDetectorRef) {
+  constructor() {
     this.OnRemove('');
   }
 
@@ -25,8 +25,9 @@ export class AppComponent {
   ];
 
   GetNavArray() {
-    debugger;
-    var newNavBarData = JSON.stringify(NarBarData);
+    this.dashboardMainMenu = [];
+    this.menuArr = [];
+    var newNavBarData = JSON.stringify(NavBarData);
     this.dashboardMainMenu = JSON.parse(newNavBarData);
 
     for (let schild of this.dashboardMainMenu) {
